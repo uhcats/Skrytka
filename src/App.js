@@ -18,6 +18,13 @@ function App() {
 
 
   }
+  const handleButtonMoveToClick = () => {
+    if (unitOsp === "") {
+      alert('Wybierz jednostkę OSP');
+    } else {
+      // Przekierowanie
+    }
+  }
 
 
   const OptionJSXTag = () => {
@@ -43,21 +50,31 @@ function App() {
     <>
 
       <div className="container">
-        <div className="logo"></div>
+        <div className="logo">
+          <img className='logoImage' src="img/logo.png" alt="" />
+        </div>
         <h1 className='welcome'>Witaj!</h1>
 
-
         <div className="select-box">
+
           <div className={`options-container${isContainerActive ? " active" : ""}`}>
+            {/* <div className="option">
+              <input className='inputSearch' type="text" placeholder='Search' />
+            </div> */}
+
             <OptionJSXTag />
           </div>
-          <div onClick={handleToggleActive} className="selected">{unitOsp ? unitOsp : "Wyszukaj jednostkę OSP aby kontynuować"}</div>
+
+
+          <div onClick={handleToggleActive} className="selected">{unitOsp ? `Wybrana jednostka OSP to: ${unitOsp}` : "Wyszukaj jednostkę OSP aby kontynuować"}</div>
         </div>
 
 
-        <button className='btnUnit'>Przejdź dalej</button>
 
-        <div className='FirstFooter'>Nie widzisz swojej jednostki? <li className='li-write-to-us'><a className='a-write-to-us' href="/"> Napisz do nas!</a></li></div>
+        <button className='btnUnit' onClick={handleButtonMoveToClick}>Przejdź dalej</button>
+
+
+        <div className='FirstFooter'>Nie widzisz swojej jednostki? <li className='li-write-to-us'><a className='a-write-to-us' href="/track"> Napisz do nas!</a></li></div>
         <footer>@Wszelkie prawa zastrzeżone 2023 Skrytka.app<p className='skrytka-date'>Skrytka 2023</p></footer>
       </div>
 

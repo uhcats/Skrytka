@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -24,7 +25,8 @@ h2 {
 }
 
 .container {
-
+  display: flex;
+  justify-content: space-around;
   padding: 32px;
 }
 
@@ -55,7 +57,7 @@ h2 {
   margin-bottom: 8px;
   color: #f5f6fa;
   position: relative;
-
+  font-size: 20px;
   order: 0;
 }
 
@@ -78,6 +80,7 @@ h2 {
   max-height: 240px;
   opacity: 1;
   overflow-y: scroll;
+  z-index: 100;
 }
 
 .select-box .options-container.active + .selected::after {
@@ -117,7 +120,7 @@ h2 {
 .logo {
   width: 300px;
   height: 200px;
-  border: 2px solid black;
+
   margin-bottom: 5%;
 
 }
@@ -161,9 +164,9 @@ footer {
   font-size: 1.2em;
 }
 /* top do zmienania na wyższe ekrany */
-.btnUnit {
-  position: absolute;
-  top: 45%;
+.btnUnit {  
+  position: fixed;
+  top: 50%;
   border-radius: 5%;
   font-size: 20px;
   letter-spacing: 3px;
@@ -174,5 +177,35 @@ footer {
   color: white;
   width: 400px;
   cursor: pointer;
-  
 }
+@media (orientation: portrait) {
+ .btnUnit {
+  top: 55%;
+ }
+}
+@media (min-width: 1200px) {
+  .btnUnit {
+    top: 55%;
+  }
+}
+
+
+
+.btnUnit:hover {
+  background-color: #282a2e;
+}
+
+.logoImage {
+  content: "";
+  background: url("../public/img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 200px;
+}
+/* .inputSearch {
+  width: 100vw;
+  padding: 1em;
+  margin-left: 0;
+
+} */
