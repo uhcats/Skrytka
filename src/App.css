@@ -203,9 +203,11 @@ footer {
   width: 300px;
   height: 200px;
 }
-/* .inputSearch {
+.inputSearch {
   width: 100vw;
   padding: 1em;
-  margin-left: 0;
+  margin: auto auto;
 
-} */
+  font-weight: bold;
+
+}
