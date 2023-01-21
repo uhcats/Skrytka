@@ -1,3 +1,7 @@
+
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +14,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Alegreya', serif;
+  font-family: "Segoe UI";
 }
 
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Segoe UI";
   background: #f7f6ff;
  
 }
@@ -32,7 +36,7 @@ h2 {
 
 .select-box {
   display: flex;
-  width: 400px;
+  width: 95%;
   flex-direction: column;
   margin-top: 2rem;
 }
@@ -52,18 +56,18 @@ h2 {
 
 .selected {
 
-  background: #2f3640;
+  background: rgba(186,25,26,255);
   border-radius: 8px;
   margin-bottom: 8px;
   color: #f5f6fa;
   position: relative;
-  font-size: 20px;
+  font-size: 15px;
   order: 0;
 }
 
 .selected::after {
   content: "";
-  background: url("../public/img/arrow-down.svg");
+  background: url("../../public/img/arrow-down.svg");
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -90,12 +94,12 @@ h2 {
 
 .select-box .options-container::-webkit-scrollbar {
   width: 8px;
-  background: #0d141f;
+  background: #f56a6a;
   border-radius: 0 8px 8px 0;
 }
 
 .select-box .options-container::-webkit-scrollbar-thumb {
-  background: #525861;
+  background:rgba(186,25,26,255) ;
   border-radius: 0 8px 8px 0;
 }
 
@@ -106,7 +110,7 @@ h2 {
 }
 
 .select-box .option:hover {
-  background: #414b57;
+  background: rgba(186,25,26,255);
 }
 
 .select-box label {
@@ -136,7 +140,7 @@ h2 {
 
 .FirstFooter {
   display: flex;
-  font-size: 20px;
+  font-size: 15px;
   position: absolute;
   top: 85%;
 }
@@ -154,14 +158,14 @@ footer {
   position: absolute;
   top: 90%;
   width: 100vw;
-  padding: 1.4rem;
+  padding: 1.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color:white;
-  background-color: #2f3640;
-  font-size: 1.2em;
+  background-color: rgba(186,25,26,255);
+  font-size: .8em;
 }
 /* top do zmienania na wyższe ekrany */
 .btnUnit {  
@@ -172,11 +176,14 @@ footer {
   letter-spacing: 3px;
   margin-top: 1em;
   padding: .4em;
-  background-color: #2f3640;
+  background-color: rgba(186,25,26,255);
   z-index: -100;
   color: white;
-  width: 400px;
+  width: 80vw;
   cursor: pointer;
+}
+.btnUnit:hover {
+  background-color:  #e94545;
 }
 @media (orientation: portrait) {
  .btnUnit {
@@ -191,17 +198,16 @@ footer {
 
 
 
-.btnUnit:hover {
-  background-color: #282a2e;
-}
+
 
 .logoImage {
   content: "";
-  background: url("../public/img/arrow-down.svg");
+  background: url("../../public/img/arrow-down.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 300px;
   height: 200px;
+  border: 10px solid black;
 }
 .inputSearch {
   width: 100vw;
@@ -211,3 +217,8 @@ footer {
   font-weight: bold;
 
 }
+
+
+
+
+
