@@ -14,7 +14,13 @@ function App() {
   const handleToggleActive = () => {
     setIsContainerActive(!isContainerActive);
   }
-
+  const handleButtonClick = () => {
+    if (unitOsp === "") {
+      alert('Musisz wybrać jednostkę')
+    } else {
+      // Redirect
+    }
+  }
   const handleLabelClick = (e) => {
     const nameOfUnit = e.target.getAttribute('name');
     setunitOsp(nameOfUnit);
@@ -22,34 +28,15 @@ function App() {
 
 
   }
-
   const handleChangeInput = (e) => {
+    setLocalization(localization.filter(localization => localization.toLowerCase().includes(e.target.value.toLowerCase())));
 
-
-    const searchText = e.target.value.toLowerCase();
-
-
-    setLocalization(localization.filter(localization => localization.toLowerCase().includes(searchText)));
-
-
-    if (searchText.length === 0) {
-      setLocalization(localizationFromDBArr)
+    if (e.target.value === "") {
+      setLocalization(localizationFromDBArr);
     }
   }
-  const handleButtonClick = () => {
-    if (unitOsp === "") {
-      alert('Musisz wybrać jednostkę')
-    }
-  }
-
-
-
-
-
-
-
-
   const OptionJSXTag = () => {
+
     localization.sort();
     const showListFromArray = localization.map((item, index) => {
 
@@ -70,6 +57,9 @@ function App() {
     )
   }
 
+
+
+
   return (
     <>
 
@@ -82,7 +72,10 @@ function App() {
         <div className="select-box">
 
           <div className={`options-container${isContainerActive ? " active" : ""}`}>
-            <input onChange={handleChangeInput} className='inputSearch' type="text" placeholder='Search' />
+            <ul className='ulInputSearch'>
+              <input onChange={handleChangeInput} className='inputSearch' type="text" placeholder='Search' />
+            </ul>
+
 
 
 
