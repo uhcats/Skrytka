@@ -75,7 +75,7 @@ function App() {
 
       <div className="container">
         <div className="logo">
-          <img className='logoImage' src='img/Skrytka-Samologo.png' alt="" />
+          <img className='box' src='img/Skrytka-Samologo.png' alt="" />
         </div>
         <h1 className='welcome'>Witaj!</h1>
 

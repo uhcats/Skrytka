@@ -53,6 +53,11 @@ h2 {
 
   order: 1;
 }
+.inputSearch {
+  width: 100vw;
+  font-size: 15px;
+  padding: 1em;
+}
 
 .selected {
 
@@ -121,17 +126,12 @@ h2 {
   display: none;
 }
 
-.logo {
-  width: 300px;
-  height: 200px;
 
-  margin-bottom: 5%;
-
-}
 
 
 
 .welcome {
+  margin-top: .3em;
   letter-spacing: 4px;
   font-size: 55px;
   font-weight: bolder;
@@ -174,9 +174,10 @@ footer {
   border-radius: 5%;
   font-size: 20px;
   letter-spacing: 3px;
-  margin-top: 1em;
+  margin-top: 2.5em;
   padding: .4em;
   background-color: rgba(186,25,26,255);
+  border: 2px solid rgba(186,25,26,255) ;
   z-index: -100;
   color: white;
   width: 80vw;
@@ -198,27 +199,61 @@ footer {
 
 
 
+.box {
+  z-index: 1000;
+  width: 220px;
+  height: 220px;
+}
 
 
-.logoImage {
+
+.logo {
+  width: 230px;
+  height: 230px;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo::before{
   content: "";
-  background: url("../../public/img/arrow-down.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 300px;
-  height: 200px;
-  border: 10px solid black;
+  background-image: conic-gradient(
+    #BB2723 40deg,
+    #BC3B2E 80deg,    
+    #C48D7B 120deg,
+    #C4A093 160deg,
+      transparent 120deg
+  );
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  animation: rotate 3s linear infinite;
 }
-.inputSearch {
-  width: 100vw;
-  padding: 1em;
-  margin: auto auto;
+.logo::after{
+  content: "";
+  width: 190px;
+  height: 190px;
 
-  font-weight: bold;
-
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0052;
+  font-size: larger;
+  letter-spacing: 5px;
+  box-shadow: inset 20px 20px 20px #0000008c;
 }
 
 
-
-
-
+@keyframes rotate {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(-360deg);
+  }
+}
