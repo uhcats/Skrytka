@@ -3,11 +3,18 @@ import BottomFPage from './components/BottomFPage';
 import './style/App.scss';
 import AppProvider from './components/AppContext';
 import SearchBox from './components/SelectBox';
-
+import Truck from './components/Truck';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from 'react-router-dom';
 function App() {
 
   return (
     <>
+
+
 
       <div className="container">
         <div className="logo">
@@ -18,7 +25,13 @@ function App() {
 
         <AppProvider>
           <SearchBox />
-          <BottomFPage />
+
+          <Router>
+
+            <BottomFPage />
+
+          </Router>
+
         </AppProvider>
 
       </div>
