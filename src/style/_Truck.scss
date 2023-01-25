@@ -1,0 +1,103 @@
+body {
+  overflow-x: hidden;
+}
+.SecondContainer {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.navigation {
+  width: 100vw;
+  height: 10vh;
+  background-color: rgba(186,25,26,255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgArrow {
+  width: 60px;
+  height: 60px;
+}
+
+.unith1Id {
+  font-size: 40px;
+  color: white;
+  
+}
+
+.skrytkaImage {
+  padding: 2em;
+  width: 140px;
+  height: 140px;
+}
+
+.a-write-to-us-1 {
+  width: 100vw;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #1f5bb5;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  &:hover {
+    color: #709bdb;
+  }
+}
+
+
+.containerTrack {
+
+  min-height: 78vh;
+
+  width: 100vw;
+  border: 2px solid black
+}
+
+
+
+.footerSecondSite {
+
+  width: 100vw;
+  padding-top: 2em;
+  padding-bottom: 2em;
+ 
+  color:white;
+  text-align: center;
+  background-color: $primary-color-button;
+  font-size: .8em;
+}
+
+
+.skryka-date {
+
+  text-align: center;
+}
+
+
+.containerTrack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.boxTrack {
+  display: flex;
+  justify-content: space-around;
+
+  
+}
+
+.informationAboutTrack {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageFireTrack {
+  width: 170px;
+  height: 70px;
+}

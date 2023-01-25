@@ -5,8 +5,8 @@ import { AppContext } from './AppContext';
 import {useNavigate} from 'react-router-dom';
 
 import {Link, Route, Routes, BrowserRouter as Router} from 'react-router-dom';
-import Truck from './Truck';
-import App from '../App';
+
+
 
 const BottomFPage = () => {
 
@@ -14,26 +14,22 @@ const BottomFPage = () => {
 
   const {unitOsp} = useContext(AppContext);
 
-  const handleButtonClick = () => {
-    if (unitOsp === "") {
-      alert('Musisz wybrać jednostkę')
-    } else {
-     
-    }
-  }
+
+  
+
+  const buttonShow = unitOsp ? <div className='imgArrow'>
+  <Link to = {`/truck/${unitOsp}`}>
+ <i className="fa-solid fa-arrow-right"></i>
+ </Link>
+ </div> 
+   : "";
+
  return (
   <>
+      {buttonShow}
 
-     
-<button onClick={handleButtonClick} className='btnUnit'>
-<Link to = '/truck'>Przejdź dalej  </Link>
-      </button>
-
-     
-    
- 
       <div className='FirstFooter'>Nie widzisz swojej jednostki? <li className='li-write-to-us'><a className='a-write-to-us' href = '/linkdostrony'> Napisz do nas!</a></li></div>
-      <footer>@Wszelkie prawa zastrzeżone 2023 Skrytka.app<p className='skrytka-date'>Skrytka 2023</p></footer>
+      <footer className='footerFirstSite'>@Wszelkie prawa zastrzeżone 2023 Skrytka.app<p className='skrytka-date'>Skrytka 2023</p></footer>
   </>
  ) 
 }

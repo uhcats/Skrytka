@@ -1,14 +1,14 @@
 @import './BottomFPage.scss';
 @import './MIxins.scss';
 @import "./Variables.scss";
-
+@import "./Truck.scss";
 
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  
 }
 
 .container {
@@ -29,6 +29,31 @@ body {
   justify-content: space-around;
   padding: 32px;
 }
+
+.imgArrrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
+.fa-solid {
+  color: rgb(171, 19, 19);
+  position: fixed;
+  top: 60%;
+  left :50%;
+
+  transform: translate(-50%,0%);
+  font-size: 100px;
+
+
+ &:hover {
+  color: rgb(220, 90, 90);
+ }
+}
+
+
 
 
 /// SEARCH BOX 
