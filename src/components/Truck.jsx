@@ -1,5 +1,4 @@
 import React from 'react';
-import {Navigate} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
@@ -41,7 +40,7 @@ const Truck = () => {
 
         <div className="informationAboutTrack">
           <h3>{item.name}</h3>
-          <label htmlFor="file">File progress:</label>
+        
           <progress id="file" max="100" value={item.progress}> 70% </progress>
         </div>
         </div>
@@ -60,7 +59,7 @@ const Truck = () => {
     <>
 
     <div className='SecondContainer'>
-   
+    <searchBar />
     <div className='navigation'>
     <Link to = '/'> <img className='imgArrow' src="../img/arrow-turn.png" alt="arrow" /></Link>
      

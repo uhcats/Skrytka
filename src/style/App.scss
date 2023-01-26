@@ -11,6 +11,25 @@
   
 }
 
+
+::-webkit-scrollbar {
+  width: 1.5em;
+  
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(17,17,17);
+
+}
+
+::-webkit-scrollbar-thumb {
+  
+  background-color: #9b9b9a;
+  border-radius: 100vw;
+}
+
+
+
 .container {
   @include display-flex();
   font-family: $priamry-font-family;
@@ -58,36 +77,13 @@ body {
 
 /// SEARCH BOX 
 
-.selected {
 
-  background: rgba(186,25,26,255);
-  border-radius: 8px;
-  margin-bottom: 8px;
-  color: #f5f6fa;
-  position: relative;
-  font-size: 15px;
-  order: 0;
-
-
-  &::after {
-    content: "";
-    background: url("../../public/img/arrow-down.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-  
-    position: absolute;
-    height: 100%;
-    width: 32px;
-    right: 10px;
-    top: 5px;
-  
-    transition: all 0.4s;
-  }
-}
 
 .select-box {
   display: flex;
-  width: 95%;
+  width: 360px;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin-top: 2rem;
 
@@ -144,9 +140,18 @@ body {
 
 
 .inputSearch {
-  width: 100vw;
+  width: 360px;
   font-size: 15px;
-  padding: 1em;
+  padding: .5em;
+}
+
+.OspUnitText {
+  text-align: center;
+  width: 100vw;
+  font-size: 18px;
+  margin-bottom: 1em;
+  font-weight: bold;
+
 }
 
 .select-box .option,
@@ -170,10 +175,10 @@ body {
   &::before{
     content: "";
     background-image: conic-gradient(
-      #BB2723 40deg,
-      #BC3B2E 80deg,    
-      #C48D7B 120deg,
-      #C4A093 160deg,
+      #BB2723 60deg,
+      #BC3B2E 120deg,    
+      #C48D7B 160deg,
+      #C4A093 200deg,
         transparent 120deg
     );
     width: 150%;
@@ -204,6 +209,7 @@ body {
   height: 220px;
 }
 // 
+
 
 
 .welcome {

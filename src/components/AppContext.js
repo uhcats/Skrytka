@@ -5,7 +5,7 @@ export const AppContext = createContext();
 
 
 const AppProvider = ({ children }) => {
-  let localizationFromDBArr = ['Kraków', 'Poznań', 'Warszawa', 'Gdańsk', 'Koszalin', 'Słupsk', 'Ktos'];
+  let localizationFromDBArr = ['Kraków', 'Poznań', 'Warszawa', 'Gdańsk', 'Koszalin', 'Słupsk', 'Gdynia'];
 
   const [unitOsp, setunitOsp] = useState("");
   const [isContainerActive, setIsContainerActive] = useState(false);

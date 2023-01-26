@@ -54,7 +54,7 @@ body {
   min-height: 78vh;
 
   width: 100vw;
-  border: 2px solid black
+  
 }
 
 
@@ -87,6 +87,7 @@ body {
 
 .boxTrack {
   display: flex;
+
   justify-content: space-around;
 
   
@@ -95,9 +96,29 @@ body {
 .informationAboutTrack {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .imageFireTrack {
   width: 170px;
-  height: 70px;
+  height: 80px;
+}
+
+@media (min-width: 800px) {
+    .imageFireTrack {
+      width: 230px;
+      height: 100px;
+    }
+}
+@media (min-width: 1000px) {
+  .imageFireTrack {
+    width: 270px;
+    height: 140px;
+  }
+}
+@media (min-width: 1300px) {
+  .imageFireTrack {
+    width: 300px;
+    height: 180px;
+  }
 }
