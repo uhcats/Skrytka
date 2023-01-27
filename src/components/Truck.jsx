@@ -39,9 +39,15 @@ const Truck = () => {
         <img className='imageFireTrack' src={item.img} alt="" />
 
         <div className="informationAboutTrack">
-          <h3>{item.name}</h3>
+          <h3 className= 'TrackName'>{item.name}</h3>
         
-          <progress id="file" max="100" value={item.progress}> 70% </progress>
+
+          <progress id="file" max="100" value={item.progress}></progress>
+          <div className='ScoringValueTrack'>
+          <h4>{item.progress / 10}/10</h4>
+          <h4>{item.progress}%</h4>
+          </div>
+          
         </div>
         </div>
         )
