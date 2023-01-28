@@ -1,12 +1,16 @@
-import React from 'react';
+
+import React, {useRef} from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
 const Truck = () => {
+
+
+
   const {id} = useParams();
   const [trackName, setTrackName] = useState('');
-
+  const textChooseTrack = useRef(true);
   const InformationTrackFromDB = [
     {
       img: '../img/fire-truck/track1.jpg',
@@ -29,30 +33,34 @@ const Truck = () => {
   const handleImageClick = (e) => {
 
     const imgWithoutExtends = e.target.id.split(/\.(?=[^\.]+$)/);
-    console.log(imgWithoutExtends)
     const TrackName = imgWithoutExtends[0].slice(18);
-    console.log(TrackName)
-
     setTrackName(TrackName);
+    textChooseTrack.current.style.color= 'black';
+
+  }
+
+  const handleArrowQuizClick = () => {
+    if(trackName === "") {
+     
+      textChooseTrack.current.innerText = "Musisz wybrać wóz";
+     textChooseTrack.current.style.color= 'red';
+    
+    }
   }
 
 
 
 
   const BoxComponent = () => {
-
-
-  
-    
     const track = InformationTrackFromDB.map((item,index)=> {
-      console.log(trackName)
+
         return (
           <>
-              <Link to = {trackName} style={{ textDecoration: 'none', color: 'black'}}>
+             
 
           <div className="boxTrack" key = {index} id = {item.img} onClick={handleImageClick} >
 
-            
+
           <img   className='imageFireTrack' id = {item.img}  src={item.img} alt="img" />
 
 
@@ -68,11 +76,7 @@ const Truck = () => {
             
           </div>
           </div>
-
-
-              </Link>
-       
-       
+          
         </>
 
 
@@ -80,7 +84,13 @@ const Truck = () => {
         
       });
       return (
-        track
+        <>
+           {track}
+           <Link to = {trackName} style={{ textDecoration: 'none', color: 'black'}}>
+            <i onClick={handleArrowQuizClick}  className="fa-solid fa-arrow-right"></i>
+            </Link>
+        </>
+     
       )
 
   }
@@ -101,7 +111,7 @@ const Truck = () => {
 
 
       <div className='containerTrack'>
-     
+        <h2 ref = {textChooseTrack}>{trackName ? `Wybrany wóz to:  ${trackName}`: "Wybierz wóz: "}</h2>
         <BoxComponent/>
       </div>
 
