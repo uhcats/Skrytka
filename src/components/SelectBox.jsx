@@ -57,7 +57,7 @@ const SearchBox = () => {
     setIsContainerActive(!isContainerActive);
     document.querySelector('.inputSearch').value = "";
   
-    console.log('klik')
+
   }
   
   

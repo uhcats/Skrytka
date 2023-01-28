@@ -27,9 +27,13 @@ const BottomFPage = () => {
  return (
   <>
       {buttonShow}
-
+    
       <div className='FirstFooter'>Nie widzisz swojej jednostki? <li className='li-write-to-us'><a className='a-write-to-us' href = '/linkdostrony'> Napisz do nas!</a></li></div>
       <footer className='footerFirstSite'>@Wszelkie prawa zastrzeżone 2023 Skrytka.app<p className='skrytka-date'>Skrytka 2023</p></footer>
+   
+     
+     
+ 
   </>
  ) 
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
 const Truck = () => {
   const {id} = useParams();
-
+  const [trackName, setTrackName] = useState('');
 
   const InformationTrackFromDB = [
     {
@@ -25,31 +26,56 @@ const Truck = () => {
     }
   ];
 
+  const handleImageClick = (e) => {
+
+    const imgWithoutExtends = e.target.id.split(/\.(?=[^\.]+$)/);
+    console.log(imgWithoutExtends)
+    const TrackName = imgWithoutExtends[0].slice(18);
+    console.log(TrackName)
+
+    setTrackName(TrackName);
+  }
 
 
 
 
   const BoxComponent = () => {
 
+
+  
+    
     const track = InformationTrackFromDB.map((item,index)=> {
-
+      console.log(trackName)
         return (
-        <div className="boxTrack" key = {index}>
+          <>
+              <Link to = {trackName} style={{ textDecoration: 'none', color: 'black'}}>
 
-        <img className='imageFireTrack' src={item.img} alt="" />
+          <div className="boxTrack" key = {index} id = {item.img} onClick={handleImageClick} >
 
-        <div className="informationAboutTrack">
-          <h3 className= 'TrackName'>{item.name}</h3>
-        
+            
+          <img   className='imageFireTrack' id = {item.img}  src={item.img} alt="img" />
 
-          <progress id="file" max="100" value={item.progress}></progress>
-          <div className='ScoringValueTrack'>
-          <h4>{item.progress / 10}/10</h4>
-          <h4>{item.progress}%</h4>
-          </div>
+
+          <div className="informationAboutTrack">
+            <h3 className= 'TrackName'>{item.name}</h3>
           
-        </div>
-        </div>
+
+            <progress className="progress" max="100" value={item.progress}></progress>
+            <div className='ScoringValueTrack'>
+            <h4>{item.progress / 10}/10</h4>
+            <h4>{item.progress}%</h4>
+            </div>
+            
+          </div>
+          </div>
+
+
+              </Link>
+       
+       
+        </>
+
+
         )
         
       });
@@ -65,7 +91,7 @@ const Truck = () => {
     <>
 
     <div className='SecondContainer'>
-    <searchBar />
+
     <div className='navigation'>
     <Link to = '/'> <img className='imgArrow' src="../img/arrow-turn.png" alt="arrow" /></Link>
      
@@ -75,10 +101,9 @@ const Truck = () => {
 
 
       <div className='containerTrack'>
-         <BoxComponent/>
-
+     
+        <BoxComponent/>
       </div>
-
 
 
     <div className='FooterSecondSite'></div>
