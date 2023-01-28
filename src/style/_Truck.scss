@@ -1,3 +1,6 @@
+$progress-bar-color: linear-gradient(90deg, rgba(185,25,25,1) 0%, rgba(185,25,25,1) 10%, rgba(220,45,45,1) 20%, rgba(220,45,45,1) 30%, rgba(255,62,62,1) 40%, rgba(255,62,62,1) 50%, rgba(255,110,110,1) 60%, rgba(255,161,161,1) 70%, rgba(255,161,161,1) 80%, rgba(255,197,197,1) 90%, rgba(255,197,197,1) 100%);
+
+
 body {
   overflow-x: hidden;
 }
@@ -123,9 +126,7 @@ body {
   }
 }
 }
-// .boxTrack:hover {
-//   transform: scale(1.08);
-// }
+
 
 .informationAboutTrack {
   display: flex;
@@ -154,11 +155,11 @@ body {
 
 
 progress::-moz-progress-bar {
-  background: linear-gradient(90deg, rgba(185,25,25,1) 0%, rgba(185,25,25,1) 10%, rgba(220,45,45,1) 20%, rgba(220,45,45,1) 30%, rgba(255,62,62,1) 40%, rgba(255,62,62,1) 50%, rgba(255,110,110,1) 60%, rgba(255,161,161,1) 70%, rgba(255,161,161,1) 80%, rgba(255,197,197,1) 90%, rgba(255,197,197,1) 100%);
+  background: $progress-bar-color;
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(90deg, rgba(185,25,25,1) 0%, rgba(185,25,25,1) 10%, rgba(220,45,45,1) 20%, rgba(220,45,45,1) 30%, rgba(255,62,62,1) 40%, rgba(255,62,62,1) 50%, rgba(255,110,110,1) 60%, rgba(255,161,161,1) 70%, rgba(255,161,161,1) 80%, rgba(255,197,197,1) 90%, rgba(255,197,197,1) 100%);
+  background: $progress-bar-color;
 }
 
 progress::-webkit-progress-bar {
@@ -182,6 +183,8 @@ progress::-webkit-progress-bar {
   }
 }
 
+
+
 @media (max-width: 600px) {
   .imageFireTrack {
     width: 150px;
@@ -197,6 +200,9 @@ progress::-webkit-progress-bar {
 
   .TrackName {
     font-size: 20px;
+  }
+  .skrytkaImage {
+    height: 124px;
   }
 }
 
