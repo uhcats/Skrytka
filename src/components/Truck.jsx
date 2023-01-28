@@ -36,8 +36,8 @@ const Truck = () => {
     const TrackName = imgWithoutExtends[0].slice(18);
     setTrackName(TrackName);
     textChooseTrack.current.style.color= 'black';
-
-  }
+  
+  }  
 
   const handleArrowQuizClick = () => {
     if(trackName === "") {
