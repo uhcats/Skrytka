@@ -2,9 +2,8 @@
 import React, {useContext} from 'react';
 
 import { AppContext } from './AppContext';
-import {useNavigate} from 'react-router-dom';
 
-import {Link, Route, Routes, BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 

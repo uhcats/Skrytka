@@ -1,26 +1,16 @@
-import React, {useContext, useState} from 'react';
-import { useEffect } from 'react';
-
+import React, {useContext, useState ,useRef} from 'react';
 import { AppContext } from './AppContext';
 const SearchBox = () => {
 
 
   const {unitOsp, isContainerActive, setunitOsp,setIsContainerActive,localization} = useContext(AppContext);
   const [value, setValue] = useState("");
-
+  const inputSearchRef = useRef(true);
 
   const handleChangeInput = (e) => {
-    
-    
-
     setIsContainerActive(true);
-   
-
     const tasks = localization.filter(localization => localization.toLowerCase().includes(e.target.value.toLowerCase()));
-
-    
       setValue(tasks); 
-     
   }
 
   const OptionJSXTag = () => {
@@ -55,9 +45,7 @@ const SearchBox = () => {
     const nameOfUnit = e.target.getAttribute('name');
     setunitOsp(nameOfUnit);
     setIsContainerActive(!isContainerActive);
-    document.querySelector('.inputSearch').value = "";
-  
-
+    inputSearchRef.value = "";
   }
   
   
@@ -73,7 +61,7 @@ const SearchBox = () => {
 
        
              
-                <input onChange={handleChangeInput} className='inputSearch' type="text" placeholder='Search' />
+                <input onChange={handleChangeInput} className='inputSearch' ref = {inputSearchRef} type="text" placeholder='Search' />
              
            
          

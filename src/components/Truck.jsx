@@ -6,8 +6,6 @@ import {Link} from 'react-router-dom';
 
 const Truck = () => {
 
-
-
   const {id} = useParams();
   const [trackName, setTrackName] = useState('');
   const textChooseTrack = useRef(true);
@@ -41,7 +39,6 @@ const Truck = () => {
 
   const handleArrowQuizClick = () => {
     if(trackName === "") {
-     
       textChooseTrack.current.innerText = "Musisz wybrać wóz";
      textChooseTrack.current.style.color= 'red';
     
@@ -52,26 +49,26 @@ const Truck = () => {
 
 
   const BoxComponent = () => {
-    const track = InformationTrackFromDB.map((item,index)=> {
+    const track = InformationTrackFromDB.map(({img,name,progress},index)=> {
 
         return (
           <>
              
 
-          <div className="boxTrack" key = {index} id = {item.img} onClick={handleImageClick} >
+          <div className="boxTrack" key = {index} id = {img} onClick={handleImageClick} >
 
 
-          <img   className='imageFireTrack' id = {item.img}  src={item.img} alt="img" />
+          <img className='imageFireTrack' id = {img}  src={img} alt="img" />
 
 
           <div className="informationAboutTrack">
-            <h3 className= 'TrackName'>{item.name}</h3>
+            <h3 className= 'TrackName'>{name}</h3>
           
 
-            <progress className="progress" max="100" value={item.progress}></progress>
+            <progress className="progress" max="100" value={progress}></progress>
             <div className='ScoringValueTrack'>
-            <h4>{item.progress / 10}/10</h4>
-            <h4>{item.progress}%</h4>
+            <h4>{progress / 10}/10</h4>
+            <h4>{progress}%</h4>
             </div>
             
           </div>
@@ -124,10 +121,6 @@ const Truck = () => {
 
     </div>
 
-
-  
- 
-    
     </>
     
       
