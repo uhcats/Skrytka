@@ -1,4 +1,4 @@
-@import './Mixins.scss';
+@import './Mixins';
 .quizContainer {
   height: 100vh;
   width: 100vw;
@@ -32,36 +32,38 @@
           justify-content: space-around;
 
       .startQuizBtn {
-        width: 60%;
-        height: 4em;
-        font-size: 20px;
-        border: none;
-        border-radius: 5%;
-        background-color: #ba191a;
-        color: white;
-        margin-top: 15%;
-  
-        &:hover {
-          background-color: #eb4b4b;
-        }
+        @include quizBtnView();
       }
-       
-    
+        
     .backSiteQuizBtn {
-      width: 60%;
-      height: 4em;
-      font-size: 20px;
-      border: none;
-      border-radius: 5%;
-      background-color: #ba191a;
-      color: white;
-      margin-top: 15%;
-
-      &:hover {
-        background-color: #eb4b4b;
-      }
+      @include quizBtnView();
     }
     }
    
     
+}
+
+.score {
+  color :white;
+  margin-right: 1em;
+  text-align: center;
+  font-size: 35px;
+}
+.fa-regular {
+  font-size: 50px;
+  color: white;
+
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  
+
+
+  .timerTime {
+    text-align: center;
+    margin-left: 1.5em;
+    color: white;
+  }
 }

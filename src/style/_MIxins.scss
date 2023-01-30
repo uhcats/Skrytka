@@ -8,11 +8,15 @@
 
 @mixin quizBtnView() {
   width: 60%;
-        height: 4em;
-        font-size: 20px;
-        border: none;
-        border-radius: 5%;
-        background-color: #ba191a;
-        color: white;
-      
+  height: 4em;
+  font-size: 20px;
+  border: none;
+  border-radius: 5%;
+  background-color: #ba191a;
+  color: white;
+  margin-top: 15%;
+
+  &:hover {
+    background-color: #eb4b4b;
+  }
 }

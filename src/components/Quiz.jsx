@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-
+import QuizGame from './QuizGame';
 
 const Quiz = () => {
   const [isPopUpActive, setIsPopUpActive] = useState(true);
@@ -28,16 +28,12 @@ const Quiz = () => {
     )
   }
 
-  const QuizComponent = () => {
-    return (
-      <h2>START QUIZU</h2>
-    )
-  }
+
   
 
 
   return (
-    isPopUpActive ? <PopUp/> : <QuizComponent/>
+    isPopUpActive ? <PopUp/> : <QuizGame/>
 
   )
 }
