@@ -45,7 +45,7 @@
 
 
 #navigationQuiz {
-  
+ 
   position:fixed;
 
 }
@@ -99,8 +99,10 @@
 
   .box1 {
     margin-top: 250px;;
-    max-width: 400px;
-    max-height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    max-width: 650px;
+    max-height: 650px;
     
   }
 }
