@@ -1,37 +1,115 @@
 import {useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import { useEffect} from 'react';
+import { useEffect, useMemo} from 'react';
 
+
+
+
+const QuizGetImage = () => {
+
+
+    
+  const QuizDataImageFromDb = [
+    {
+      img: '/img/fire-truck/img1.jpg',
+    },
+    
+    {
+      img: '/img/fire-truck/img2.jpg',
+    },
+    {
+      img: '/img/fire-truck/img3.jpg',
+    },
+    {
+      img: '/img/fire-truck/img4.jpg',
+    }
+  ];
+
+
+  const data =  QuizDataImageFromDb.map(({img}, index)=> {
+
+    return (
+      <>
+      <img key = {index} className='box1' src= {img} alt="track" />
+    </>
+    )
+    
+  });
+
+  return (
+    data
+  )
+}
+
+
+const QuizGetQuestion = () => {
+  
+  const QuizDataQuestionFromDb = [
+    {
+      question: "Gdzie jest prądownica turbo ?",
+      coorectAnswer: 2,
+    },
+    
+    {
+      question: "Pytanie 2",
+      coorectAnswer: 6,
+    },
+    {
+      question: "Pytanie 3",
+      coorectAnswer: 3,
+    },
+    {
+      question: "Pytanie 4",
+      coorectAnswer: 4,
+    }
+  ];
+
+  let DrawQuestion = Math.floor(Math.random() * QuizDataQuestionFromDb.length);
+
+  let EndDrawQuestion = QuizDataQuestionFromDb[DrawQuestion].question;
+  return (
+    <h1 className='questionText1'>{EndDrawQuestion}</h1>
+  )
+}
 
 
 
 const QuizGame = () => {
   const navigate = useNavigate();
+  const [score,setScore] = useState(0);
 
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  const ButtonNextQuestionClick = () => {
+    setScore(score + 1);
+    if(score === 10) {
+      alert('koniec quizu')
+    } else {
+      
+    }
+  }
 
+  // const [seconds, setSeconds] = useState(0);
+  // const [minutes, setMinutes] = useState(0);
+  // useEffect(() => {
+  //   let timer =   setInterval(() => {
+  //     setSeconds(seconds + 1);
 
-  useEffect(() => {
-    let timer = setInterval(() => {
-      setSeconds(seconds + 1);
+  //     if(seconds === 59) {
+  //           setMinutes(minutes + 1);
+  //           setSeconds(0);
+  //     }
 
-      if(seconds === 59) {
-            setMinutes(minutes + 1);
-            setSeconds(0);
-      }
+  //   }, 1000);
 
-    }, 1000);
+  //   return () => clearInterval(timer);
 
-    return () => clearInterval(timer);
-
-  });
+  // });
     
- 
-  
 
+  
+    
   return (
     <>
+  
      <div id = 'navigationQuiz' className='navigation'>
      
    
@@ -39,9 +117,9 @@ const QuizGame = () => {
 
     <div className="timer">
     <i className="fa-regular fa-hourglass"></i>
-    <h1 className='timerTime'>{minutes < 10 ? "0"+minutes: minutes} : {seconds < 10 ? "0"+seconds: seconds}</h1>
+    {/* <h1 className='timerTime'>{minutes < 10 ? "0"+minutes: minutes} : {seconds < 10 ? "0"+seconds: seconds}</h1> */}
     </div>
-      <h1 className = 'score'>0/10</h1>
+      <h1 className = 'score'>{score}/10</h1>
 
      
 
@@ -50,19 +128,16 @@ const QuizGame = () => {
       </div>
    
         <div className="question">
-        <h1 className='questionText1'>Gdzie jest prądownica turbo ?</h1>
+          <QuizGetQuestion/>
       </div>
 
 
       <div className="trackImgBox">
-          <img className='box1' src= "/img/fire-truck/img1.jpg" alt="track" />
-          <img className='box1' src="/img/fire-truck/img2.jpg" alt="track" />
-          <img className='box1' src="/img/fire-truck/img3.jpg" alt="track" />
-          <img className='box1' src="/img/fire-truck/img4.jpg" alt="track" />
+      <QuizGetImage/>
 
           
       </div>
-      <button className='NextQuestionButton'>Następne pytanie</button>
+      <button onClick={ButtonNextQuestionClick} className='NextQuestionButton'>Następne pytanie</button>
 
 
 
