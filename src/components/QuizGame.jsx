@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import { useEffect, useMemo} from 'react';
+import { useEffect} from 'react';
 
 
 
@@ -30,7 +30,10 @@ const QuizGetImage = () => {
 
     return (
       <>
+      <div key = {index} className="boxIMG">
       <img key = {index} className='box1' src= {img} alt="track" />
+      </div>
+    
     </>
     )
     
@@ -72,6 +75,28 @@ const QuizGetQuestion = () => {
   )
 }
 
+const ShowTimer = () => {
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  useEffect(() => {
+    let timer =   setInterval(() => {
+      setSeconds(seconds + 1);
+
+      if(seconds === 59) {
+            setMinutes(minutes + 1);
+            setSeconds(0);
+      }
+
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+  });
+    return (
+       <h1 className='timerTime'>{minutes < 10 ? "0"+minutes: minutes} : {seconds < 10 ? "0"+seconds: seconds}</h1>
+    )
+}
+
 
 
 const QuizGame = () => {
@@ -80,30 +105,14 @@ const QuizGame = () => {
 
   const ButtonNextQuestionClick = () => {
     setScore(score + 1);
-    if(score === 10) {
+    if(score === 9) {
       alert('koniec quizu')
     } else {
       
     }
   }
 
-  // const [seconds, setSeconds] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
-  // useEffect(() => {
-  //   let timer =   setInterval(() => {
-  //     setSeconds(seconds + 1);
 
-  //     if(seconds === 59) {
-  //           setMinutes(minutes + 1);
-  //           setSeconds(0);
-  //     }
-
-  //   }, 1000);
-
-  //   return () => clearInterval(timer);
-
-  // });
-    
 
   
     
@@ -112,12 +121,14 @@ const QuizGame = () => {
   
      <div id = 'navigationQuiz' className='navigation'>
      
-   
-        <img onClick = {() => navigate(-1)} id = 'imgArrow' className='imgArrow' src="/img/arrow-turn.png" alt="arrow" />
+
+
+    <img onClick = {() => navigate(-1)} id = 'imgArrow' className='imgArrow' src="/img/arrow-turn.png" alt="arrow" />
+
 
     <div className="timer">
     <i className="fa-regular fa-hourglass"></i>
-    {/* <h1 className='timerTime'>{minutes < 10 ? "0"+minutes: minutes} : {seconds < 10 ? "0"+seconds: seconds}</h1> */}
+    <ShowTimer/>
     </div>
       <h1 className = 'score'>{score}/10</h1>
 
@@ -135,7 +146,6 @@ const QuizGame = () => {
       <div className="trackImgBox">
       <QuizGetImage/>
 
-          
       </div>
       <button onClick={ButtonNextQuestionClick} className='NextQuestionButton'>Następne pytanie</button>
 
