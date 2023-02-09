@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import QuizGame from './QuizGame';
 
 const Quiz = () => {
-  const [isPopUpActive, setIsPopUpActive] = useState(true);
+  const [isPopUpActive, setIsPopUpActive] = useState(false);
   const navigate = useNavigate();
 
   const PopUp = () => {
