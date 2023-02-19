@@ -3,7 +3,7 @@
 @import "./Variables.scss";
 @import "./Truck.scss";
 @import './Quiz.scss';
-
+@import './Result.scss';
 * {
   margin: 0;
   padding: 0;
@@ -101,7 +101,7 @@ body {
     order: 1;
   }
 
-  .option .radio {
+  .radio {
     display: none;
   }
 

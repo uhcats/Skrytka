@@ -2,7 +2,7 @@ import React, {useContext, useState ,useRef} from 'react';
 import { AppContext } from './AppContext';
 const SearchBox = () => {
 
-
+ 
   const {unitOsp, isContainerActive, setunitOsp,setIsContainerActive,localization} = useContext(AppContext);
   const [value, setValue] = useState("");
   const inputSearchRef = useRef(true);
@@ -22,7 +22,7 @@ const SearchBox = () => {
         return (
           <div onClick={handleLabelClick} name={item} key={index} className="option">
             <input type="radio" className="radio" name="localization" />
-            <label htmlFor="">{item}</label>
+           {item}
   
           </div>
         )

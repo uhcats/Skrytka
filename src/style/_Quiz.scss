@@ -45,7 +45,7 @@
 
 
 #navigationQuiz {
- 
+  z-index: 1000;
   position:fixed;
 
 }
@@ -66,6 +66,7 @@
   height: 100px;
   position: fixed;
   top: 10%;
+  z-index: 1000;
 
   .questionText1 {
     color: white;
@@ -139,7 +140,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
-  font-size: 40px;
+  font-size: 30px;
   padding: .5em;
   border: none;
   background-color: #8880ff;
@@ -248,7 +249,7 @@
 .quiz_container {
 
 	position: relative;
-  z-index: -1;
+ 
 	width: 80%;
   max-width: 1200px;
   margin-top: 30%;
@@ -265,15 +266,20 @@
 	background: none;
 	border: greenyellow solid 2px;
 	transform: translate(-50%, -50%);
-
+  
 }
 .quiz_button {
   font-size: 20px;
   font-weight: bolder;
-  color: black;
+  color: black; 
+  z-index: 900;
+   &:hover {
+    cursor: pointer;
+   }
 }
 .quiz_container button:hover {
 	border: white solid 2px;
+
 }
 .quiz_container button:active {
  	border: blue solid 2px;

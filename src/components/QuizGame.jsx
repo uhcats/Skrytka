@@ -1,216 +1,24 @@
 import {useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import { useEffect} from 'react';
+import { useEffect, useContext} from 'react';
+import { QuizGetImage,QuizGetQuestion } from './GetImageAndQuestion';
+import AppProvider from './AppContext';
+import { EndCorrectAnswer } from './GetImageAndQuestion';
+import { AppContext } from './AppContext';
+import Result from './Result';
 
 
-
-
-const QuizGetImage = () => {
-  const handleCheckClick = (e) => {
-    console.log(e.target);
-    console.log('klik')
-  }
-  
-  
-
-    
-  const QuizDataImageFromDb = [
-    {
-      img: '/img/fire-truck/img1.jpg',
-      boxStyle: {
-          name: "Kierowca 1",
-          top: "48%",
-          left: "49%",
-          height: "39%",
-          width: "15.5%",
-      },
-      boxStyle1: {
-        name1: "Kierowca 3",
-        top1: "45%",
-        left1: "83%",
-        height1: "35%",
-        width1: "13%",
-      },
-        boxStyle2: {
-          name2: "Kierowca 2",
-          top2: "40%",
-          left2: "67%",
-          height2: "23%",
-          width2: "18%",
-      },
-      boxStyle3: {
-        name3: "Kabina",
-        top3: "38%",
-        left3: "30%",
-        height3: "35%",
-        width3: "13%",
-      }
-    },
-    {
-      img: '/img/fire-truck/imgTrack2.jpg',
-      boxStyle: {
-        name: "Dach",
-        top: "48%",
-        left: "69%",
-        height: "35%",
-        width: "35%",
-    },boxStyle1: {
-      width: 0,
-      height: 0,
-    },
-      boxStyle2: {   
-        width: 0,
-        height: 0,
-      },
-      boxStyle3: {   
-        width: 0,
-        height: 0,
-      },
-    },
-    {
-      img: '/img/fire-truck/imgTrack4.jpg',
-      boxStyle: {
-        name: "Dowódca 3",
-        top: "50%",
-        left: "15%",
-        height: "39%",
-        width: "15.5%",
-    },
-    boxStyle1: {
-      name1: "Dowódca 2",
-      top1: "42%",
-      left1: "32%",
-      height1: "24%",
-      width1: "18%",
-    },
-    boxStyle2: {
-      name2: "Dowódca 1",
-      top2: "52%",
-      left2: "49%",
-      height2: "39%",
-      width2: "14%",
-    },
-    boxStyle3: {
-      top2: "50%",
-      left2: "49%",
-      height2: "0",
-      width2: "0",
-    },
-
-    },
-
-    {
-      img: '/img/fire-truck/imgTrack3.jpg',
-      boxStyle: {
-        name: "Tył",
-        top: "42%",
-        left: "50.5%",
-        height: "41%",
-        width: "18%",
-    },
-    boxStyle1: {},
-    boxStyle2: {},
-    boxStyle3: {},
-    }
-  ];
-
-  const data =  QuizDataImageFromDb.map(({img,boxStyle,boxStyle1,boxStyle2,boxStyle3}, index)=> {
-
-   const {top,width,height,left,name} = boxStyle;
-   const {top1,width1,height1,left1, name1} = boxStyle1;
-   const {top2,width2,height2,left2, name2} = boxStyle2;
-   const {top3,width3,height3,left3, name3} = boxStyle3;
-
-    return (
-      <>   
-      <div className="boxElement">
-      <div className="quiz_container">
-        <img key = {index}src= {img} alt="track"/> 
-
-        <button onClick = {handleCheckClick} className="quiz_button"  style = {{
-          "width": width,
-          "height": height,
-          "top": top,
-          "left": left,
-        }}>{name}</button>
-
-
-        <button className="quiz_button" onClick = {handleCheckClick}
-        style = {{
-          "width": width1,
-          "height": height1,
-          "top": top1,
-          "left": left1,
-        }}>{name1}</button>
-
-        <button className="quiz_button" onClick = {handleCheckClick}
-        style = {{
-          "width": width2,
-          "height": height2,
-          "top": top2,
-          "left": left2,
-        }}>{name2}</button>
-
-        <button className="quiz_button" onClick = {handleCheckClick} 
-         style = {{
-          "width": width3,
-          "height": height3,
-          "top": top3,
-          "left": left3,
-        }}>{name3}</button>
-     
-
-      </div>
-      </div>
-   
-       
-    
-    </>
-    )
-    
-  });
-
-  return (
-    data
-  )
-}
-
-
-const QuizGetQuestion = () => {
-  
-  const QuizDataQuestionFromDb = [
-    {
-      question: "Gdzie jest prądownica turbo ?",
-      coorectAnswer: 2,
-    },
-    
-    {
-      question: "Pytanie 2",
-      coorectAnswer: 6,
-    },
-    {
-      question: "Pytanie 3",
-      coorectAnswer: 3,
-    },
-    {
-      question: "Pytanie 4",
-      coorectAnswer: 4,
-    }
-  ];
-
-  let DrawQuestion = Math.floor(Math.random() * QuizDataQuestionFromDb.length);
-
-  let EndDrawQuestion = QuizDataQuestionFromDb[DrawQuestion].question;
-  return (
-    <h1 className='questionText1'>{EndDrawQuestion}</h1>
-  )
-}
-
+export let endScore = 0;
+export let timer = "";
 const ShowTimer = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  // const [seconds, setSeconds] = useState(0);
+  // const [minutes, setMinutes] = useState(0);
+
+  const {seconds, setSeconds} = useContext(AppContext);
+  const {minutes, setMinutes} = useContext(AppContext);
+ 
   useEffect(() => {
-    let timer =   setInterval(() => {
+    timer =   setInterval(() => {
       setSeconds(seconds + 1);
 
       if(seconds === 59) {
@@ -219,7 +27,7 @@ const ShowTimer = () => {
       }
 
     }, 1000);
-
+  
     return () => clearInterval(timer);
 
   });
@@ -230,36 +38,37 @@ const ShowTimer = () => {
 
 
 
+     
+
+
+
 const QuizGame = () => {
   const navigate = useNavigate();
   const [score,setScore] = useState(0);
-
-  const ButtonNextQuestionClick = () => {
+  const ButtonNextQuestionClick = (e) => {
     setScore(score + 1);
-    if(score === 9) {
-      alert('koniec quizu')
-    } else {
-      
-    }
+    if(score === 9) 
+      navigate("/result");
+     else if (e.target.textContent === EndCorrectAnswer)
+        endScore++;
+    
   }
 
-
-
-  
-    
   return (
     <>
   
      <div id = 'navigationQuiz' className='navigation'>
      
-
-    
     <img onClick = {() => navigate(-1)} id = 'imgArrow' className='imgArrow' src="/img/arrow-turn.png" alt="arrow" />
 
 
     <div className="timer">
     <i className="fa-regular fa-hourglass"></i>
+    <AppProvider>
     <ShowTimer/>
+
+    </AppProvider>
+   
     </div>
       <h1 className = 'score'>{score}/10</h1>
 
@@ -270,15 +79,19 @@ const QuizGame = () => {
       </div>
    
         <div className="question">
-          <QuizGetQuestion/>  
+          <AppProvider>
+          <QuizGetQuestion />  
+    
+          </AppProvider>
+          
       </div>
 
 
       <div className="trackImgBox">
-      <QuizGetImage/>
+      <QuizGetImage  onPress={(e) => ButtonNextQuestionClick(e)}/>
 
       </div>
-      <button onClick={ButtonNextQuestionClick} className='NextQuestionButton'>Następne pytanie</button>
+      {/* <button onClick={ButtonNextQuestionClick} className='NextQuestionButton'>Następne pytanie</button> */}
 
 
 
@@ -333,4 +146,6 @@ const QuizGame = () => {
    
   )
 }
+
+
 export default QuizGame;
