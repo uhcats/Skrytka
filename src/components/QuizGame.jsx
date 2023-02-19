@@ -5,14 +5,13 @@ import { QuizGetImage,QuizGetQuestion } from './GetImageAndQuestion';
 import AppProvider from './AppContext';
 import { EndCorrectAnswer } from './GetImageAndQuestion';
 import { AppContext } from './AppContext';
-import Result from './Result';
 
 
-export let endScore = 0;
+
+export let endScore = 1;
 export let timer = "";
 const ShowTimer = () => {
-  // const [seconds, setSeconds] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
+
 
   const {seconds, setSeconds} = useContext(AppContext);
   const {minutes, setMinutes} = useContext(AppContext);

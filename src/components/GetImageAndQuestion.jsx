@@ -6,21 +6,21 @@ export const QuizGetQuestion = () => {
  
   const QuizDataQuestionFromDb = [
     {
-      question: "Gdzie jest prądownica turbo ?",
-      coorectAnswer: "Kierowca 1",
+      question: "Pytanie 1",
+      coorectAnswer: "Kabina",
     },
     
     {
       question: "Pytanie 2",
-      coorectAnswer: "Kabina",
+      coorectAnswer: "Kierowca 1",
     },
     {
       question: "Pytanie 3",
-      coorectAnswer: "Dach",
+      coorectAnswer: "Kierowca 2",
     },
     {
       question: "Pytanie 4",
-      coorectAnswer: "Tył",
+      coorectAnswer: "Kierowca 3",
     }
   ];
 
@@ -148,6 +148,7 @@ export const QuizGetImage = ({onPress}) => {
       <>   
       <div className="boxElement">
       <div className="quiz_container">
+      
         <img key = {index}src= {img} alt="track"/> 
 
         <button onClick = {onPress} className="quiz_button"  style = {{
@@ -181,7 +182,7 @@ export const QuizGetImage = ({onPress}) => {
           "top": top3,
           "left": left3,
         }}>{name3}</button>
-     
+  
 
       </div>
       </div>

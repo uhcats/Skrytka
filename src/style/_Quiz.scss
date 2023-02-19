@@ -80,7 +80,7 @@
   width: 100%;
 	height: auto;
 }
-
+ 
 .bigBox .boxStyle{
   position: absolute;
 	outline: none;
@@ -243,8 +243,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
+.boxOfImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+}
+
 
 .quiz_container {
 
@@ -285,3 +292,7 @@
  	border: blue solid 2px;
 }
 .quiz_container button span { background-color: darkorange; }
+
+
+
+
