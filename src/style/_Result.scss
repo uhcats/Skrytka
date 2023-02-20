@@ -1,8 +1,8 @@
 .trophy {
-  min-width: 500px;
-  min-height: 500px;
-  max-width: 700px;
-  max-height: 500px;
+  min-width: 450px;
+  min-height: 450px;
+  max-width: 450px;
+  max-height: 450px;
   
 }
 .congratulationh2 {
@@ -16,15 +16,22 @@
 
 @media (max-width: 800px) {
   .trophy {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
   .endScoreh2 {
     font-size: 35px;
+  }
+  .congratulationh2 {
+    font-size: 30px;
   }
 }
 @media (max-width: 400px) {
   .endScoreh2 {
     font-size: 30px;
+  }
+  .trophy {
+    width: 150px;
+    height: 150px;
   }
 }

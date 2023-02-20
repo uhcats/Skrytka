@@ -10,6 +10,8 @@ import { AppContext } from './AppContext';
 
 export let endScore = 1;
 export let timer = "";
+export let SecondSeconds = 1;
+export let SecondMinutes = 0;
 const ShowTimer = () => {
 
 
@@ -18,18 +20,21 @@ const ShowTimer = () => {
  
   useEffect(() => {
     timer =   setInterval(() => {
+      SecondSeconds = seconds;
+      SecondMinutes = minutes
       setSeconds(seconds + 1);
 
       if(seconds === 59) {
             setMinutes(minutes + 1);
             setSeconds(0);
       }
-
+   
     }, 1000);
   
+  
     return () => clearInterval(timer);
-
   });
+  
     return (
        <h1 className='timerTime'>{minutes < 10 ? "0"+minutes: minutes} : {seconds < 10 ? "0"+seconds: seconds}</h1>
     )
