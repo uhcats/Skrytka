@@ -108,7 +108,7 @@ const Truck = () => {
 
 
       <div className='containerTrack'>
-        <h2 ref = {textChooseTrack}>{trackName ? `Wybrany wóz to:  ${trackName}`: "Wybierz wóz: "}</h2>
+        <h2 className='chooseCarH2' ref = {textChooseTrack}>{trackName ? `Wybrany wóz to:  ${trackName}`: "Wybierz wóz: "}</h2>
         <BoxComponent/>
       </div>
 

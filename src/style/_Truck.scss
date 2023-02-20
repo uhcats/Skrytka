@@ -29,7 +29,9 @@ body {
 .unith1Id {
   font-size: 40px;
   color: white;
-  
+  text-align: center;
+  margin-left: 2em;
+
 }
 
 .skrytkaImage {
@@ -37,6 +39,30 @@ body {
   width: 140px;
   height: 140px;
 }
+@media (max-width: 600px) {
+  .unith1Id {
+    margin-left: 25px;
+    font-size: 32px;
+  }
+  
+}
+@media (max-width: 370px) {
+  .unith1Id {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 400px) {
+  .unith1Id {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 500px) {
+  .unith1Id {
+    margin-left: 75px;
+  }
+}
+
+
 
 .a-write-to-us-1 {
   width: 100vw;
@@ -59,8 +85,19 @@ body {
 
   width: 100vw;
   
+  .chooseCarH2 {
+    text-align: center;
+  }
 }
 
+@media (min-width: 1200px) {
+  .chooseCarH2 {
+    margin-top: 2%;
+  }
+    .boxTrack {
+      margin-top: 2%;
+    }
+}
 
 
 .footerSecondSite {
@@ -87,6 +124,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .boxTrack {
@@ -96,36 +134,41 @@ body {
   border: 2px solid black;
   width: 80vw;
   border-radius: 1em;
+
+  &:hover {
+    background-color: rgb(235, 218, 218);
+  }
   
-  transform:
-    scale(0.9)
-    rotateY(-20deg)
-    rotateX(35deg)
-    translateZ(2.5rem);
-  transform-origin: 50% 100%;
-  transform-style: preserve-3d;
-  box-shadow: 1rem 1rem 2rem rgba(0,0,0,0.25);
-  transition: .6s ease transform;
+//   transform:
+//     scale(0.9)
+//     rotateY(-20deg)
+//     rotateX(35deg)
+//     translateZ(2.5rem);
+//   transform-origin: 50% 100%;
+//   transform-style: preserve-3d;
+//   box-shadow: 1rem 1rem 2rem rgba(0,0,0,0.25);
+//   transition: .6s ease transform;
 
 
-&:hover {
-  transform: scale(1);
+// &:hover {
+//   transform: scale(1);
+// }
+
+// &::before {
+//   transform: translateZ(4rem);
+//   &:hover {
+//     transform: translateZ(0);
+//   }
+// }
+
+// &::after {
+//   transform: translateZ(-4rem);
+//   &:hover {
+//     transform: translateZ(-1px);
+//   }
+// }
 }
 
-&::before {
-  transform: translateZ(4rem);
-  &:hover {
-    transform: translateZ(0);
-  }
-}
-
-&::after {
-  transform: translateZ(-4rem);
-  &:hover {
-    transform: translateZ(-1px);
-  }
-}
-}
 
 
 .informationAboutTrack {
@@ -140,6 +183,7 @@ body {
 .imageFireTrack {
   width: 170px;
   height: 80px;
+  
 }
 
 
