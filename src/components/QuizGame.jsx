@@ -1,12 +1,11 @@
 import {useNavigate} from 'react-router-dom';
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import { QuizGetImage,QuizGetQuestion } from './GetImageAndQuestion';
-import AppProvider, { AppContext } from './AppContext';
+import AppProvider from './AppContext';
 import { EndCorrectAnswer } from './GetImageAndQuestion';
 import Timer from './Timer';
 import FooterQuiz from './FooterQuiz';
-import { buttonQuiz } from './GetImageAndQuestion';
-import { QuizDataImageFromDb } from './GetImageAndQuestion';
+
 
 export let endScore = 1;
 
@@ -26,37 +25,12 @@ const NavigationQuiz = ({score}) => {
    
     </div>
       <h1 className = 'score'>{score}/10</h1>
-      </div>
+     </div>
   )
   
- 
 }
 
-const ButtonShowCorrectAnswer = (isClick, setIsClick, score,setScore,navigate) => {
-  setIsClick(!isClick);
- 
-  if(isClick === false) 
-    setScore(score + 1);
-    if(score === 9) 
-    navigate("/result");
-    console.log(EndCorrectAnswer);
-    // QuizDataImageFromDb.find((el,index) => {
-    
-    //     if(el.boxStyle.name === EndCorrectAnswer) {
-    //       console.log(EndCorrectAnswer);
-    //       console.log(el.boxStyle.name)
-    //       console.log(el);
-    //       el.boxStyle.style = "display:block";
-    //     }
-    // })
 
- ;
-
-
-
-  
- 
-}
 
 
 
@@ -67,9 +41,11 @@ const QuizGame = () => {
   const navigate = useNavigate();
   const [score,setScore] = useState(0);
   const [isClick, setIsClick] = useState(true);
+
   
   const ButtonNextQuestionClick = (e) => {
     setScore(score + 1);
+
     if(score === 9) 
       navigate("/result");
      else if (e.target.textContent === EndCorrectAnswer)
@@ -83,9 +59,19 @@ const QuizGame = () => {
       <NavigationQuiz score = {score} />
    
         <div className="question">
+   
           <AppProvider>
-          <QuizGetQuestion />  
+          <QuizGetQuestion 
+          isClick = {isClick} 
+          setIsClick = {setIsClick} 
+          score = {score}
+          setScore = {setScore}
+          navigate = {navigate}
+           />  
+         
+
           </AppProvider>
+         
         </div>
 
 
@@ -95,7 +81,7 @@ const QuizGame = () => {
       onPress={(e) => ButtonNextQuestionClick(e)}/>
       </div>
       
-      <button onClick={() => ButtonShowCorrectAnswer(isClick, setIsClick , score , setScore, navigate)} className='NextQuestionButton'>{isClick ? "Pokaż odpowiedź" : "Następne pytanie"}</button>
+     
       <FooterQuiz/>
 
     </>

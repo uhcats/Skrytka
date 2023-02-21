@@ -2,7 +2,12 @@ import React, {useRef} from 'react';
 
 export let EndCorrectAnswer = "";
 export let buttonQuiz = "";
-export const QuizGetQuestion = () => {
+
+let buttonsElement = "";
+let EndDrawQuestion = "";
+
+
+export const QuizGetQuestion = ({score,isClick,setScore,setIsClick,navigate}) => {
  
   const QuizDataQuestionFromDb = [
     {
@@ -12,11 +17,11 @@ export const QuizGetQuestion = () => {
     
     {
       question: "Pytanie 2",
-      coorectAnswer: "Kierowca 1",
+      coorectAnswer: "Dach",
     },
     {
       question: "Pytanie 3",
-      coorectAnswer: "Kierowca 2",
+      coorectAnswer: "Dowódca 3",
     },
     {
       question: "Pytanie 4",
@@ -24,14 +29,64 @@ export const QuizGetQuestion = () => {
     }
   ];
 
+  const ButtonShowCorrectAnswer = (isClick, setIsClick, score,setScore,navigate) => {
+      const buttonsElementArray = Array.from(buttonsElement)
+    
+    setIsClick(!isClick);
 
-  let DrawQuestion = Math.floor(Math.random() * QuizDataQuestionFromDb.length);
+   
+     
+     
+     
+  if(isClick === false) {
+      setScore(score + 1);
+    
 
-  let EndDrawQuestion = QuizDataQuestionFromDb[DrawQuestion].question;
-  EndCorrectAnswer = QuizDataQuestionFromDb[DrawQuestion].coorectAnswer;
+      setIsClick(isClick = false);
+      buttonsElementArray.forEach((el) => {
+        if(EndCorrectAnswer === el.name){
+            console.log(el);
+    
+            el.style.display = "block";
+            el.style.color  ="yellow";
+            setIsClick(isClick = true);
+        }
+      
+     })
+
+  
+      if(score === 9) 
+      navigate("/result");
+      
+    }else {
+      buttonsElementArray.forEach((el) => {
+        if(EndCorrectAnswer === el.name){
+            console.log(el);
+
+            el.style.color  ="black";
+            
+        }
+      
+     })
+    }
+    
+  }
+
+
+   let DrawQuestion = Math.floor(Math.random() * QuizDataQuestionFromDb.length);
+
+  if(isClick === true) {
+    EndDrawQuestion = QuizDataQuestionFromDb[DrawQuestion].question;
+  }
+ 
+    EndCorrectAnswer = QuizDataQuestionFromDb[DrawQuestion].coorectAnswer;
   
     return (
-    <h1 className='questionText1'>{EndDrawQuestion}</h1>
+      <div className="questionDiv">
+    <h1 className='questionText1'>{EndDrawQuestion}</h1>  
+    <button onClick={() => ButtonShowCorrectAnswer(isClick, setIsClick , score , setScore, navigate)} className='NextQuestionButton'>{isClick ? "Pokaż odpowiedź" : "Następne pytanie"}</button>
+      </div>
+  
   )
 }
 
@@ -141,10 +196,12 @@ export const QuizGetImage = ({onPress, isClick}) => {
 
   const data =  QuizDataImageFromDb.map(({img,boxStyle,boxStyle1,boxStyle2,boxStyle3}, index)=> {
 
-   const {top,width,height,left,name} = boxStyle;
-   const {top1,width1,height1,left1, name1} = boxStyle1;
-   const {top2,width2,height2,left2, name2} = boxStyle2;
-   const {top3,width3,height3,left3, name3} = boxStyle3;
+   let {top,width,height,left,name} = boxStyle;
+   let {top1,width1,height1,left1, name1} = boxStyle1;
+   let {top2,width2,height2,left2, name2} = boxStyle2;
+   let {top3,width3,height3,left3, name3} = boxStyle3;
+    buttonsElement = document.querySelectorAll('.quiz_button');
+
 
     return (
       <>   
@@ -153,7 +210,7 @@ export const QuizGetImage = ({onPress, isClick}) => {
       
         <img key = {index}src= {img} alt="track"/> 
 
-        <button ref = {buttonQuiz} onClick = {onPress} className="quiz_button"  style = {{
+        <button ref = {buttonQuiz} name = {name} onClick = {onPress} className="quiz_button"  style = {{
           "width": width,
           "height": height,
           "top": top,
@@ -162,7 +219,7 @@ export const QuizGetImage = ({onPress, isClick}) => {
         }}>{name}</button>
 
 
-        <button ref = {buttonQuiz} className="quiz_button" onClick = {onPress} 
+        <button ref = {buttonQuiz} name = {name1}  className="quiz_button" onClick = {onPress} 
         style = {{
           "width": width1,
           "height": height1,
@@ -171,7 +228,7 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "display": isClick ? "block": "none",
         }}>{name1}</button>
 
-        <button ref = {buttonQuiz} className="quiz_button" onClick = {onPress}
+        <button ref = {buttonQuiz} name = {name2}  className="quiz_button" onClick = {onPress}
         style = {{
           "width": width2,
           "height": height2,
@@ -180,7 +237,7 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "display": isClick ? "block": "none",
         }}>{name2}</button>
 
-        <button ref = {buttonQuiz} className="quiz_button" onClick = {onPress}
+        <button ref = {buttonQuiz} name = {name3}  className="quiz_button" onClick = {onPress}
          style = {{
           "width": width3,
           "height": height3,

@@ -142,11 +142,14 @@
   }
 }
 
+.questionDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .NextQuestionButton {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2em;
+  margin-top: .4em;
   font-size: 30px;
   padding: .5em;
   border: none;
@@ -320,5 +323,7 @@
 .quiz_container button span { background-color: darkorange; }
 
 
-
-
+.skrytka {
+  display: block;
+  border: 3px solid yellow;
+}
