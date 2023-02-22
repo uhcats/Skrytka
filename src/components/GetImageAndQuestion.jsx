@@ -5,7 +5,7 @@ export let buttonQuiz = "";
 
 let buttonsElement = "";
 let EndDrawQuestion = "";
-
+let ButtonShowCorrectAnswer = "";
 
 export const QuizGetQuestion = ({score,isClick,setScore,setIsClick,navigate}) => {
  
@@ -29,48 +29,7 @@ export const QuizGetQuestion = ({score,isClick,setScore,setIsClick,navigate}) =>
     }
   ];
 
-  const ButtonShowCorrectAnswer = (isClick, setIsClick, score,setScore,navigate) => {
-      const buttonsElementArray = Array.from(buttonsElement)
-    
-    setIsClick(!isClick);
 
-   
-     
-     
-     
-  if(isClick === false) {
-      setScore(score + 1);
-    
-
-      setIsClick(isClick = false);
-      buttonsElementArray.forEach((el) => {
-        if(EndCorrectAnswer === el.name){
-            console.log(el);
-    
-            el.style.display = "block";
-            el.style.color  ="yellow";
-            setIsClick(isClick = true);
-        }
-      
-     })
-
-  
-      if(score === 9) 
-      navigate("/result");
-      
-    }else {
-      buttonsElementArray.forEach((el) => {
-        if(EndCorrectAnswer === el.name){
-            console.log(el);
-
-            el.style.color  ="black";
-            
-        }
-      
-     })
-    }
-    
-  }
 
 
    let DrawQuestion = Math.floor(Math.random() * QuizDataQuestionFromDb.length);
@@ -200,8 +159,33 @@ export const QuizGetImage = ({onPress, isClick}) => {
    let {top1,width1,height1,left1, name1} = boxStyle1;
    let {top2,width2,height2,left2, name2} = boxStyle2;
    let {top3,width3,height3,left3, name3} = boxStyle3;
-    buttonsElement = document.querySelectorAll('.quiz_button');
-
+   
+   
+    ButtonShowCorrectAnswer = (isClick, setIsClick, score,setScore,navigate) => {
+      buttonsElement = document.querySelectorAll('.quiz_button');
+      const buttonsElementArray = Array.from(buttonsElement)
+      setIsClick(!isClick);
+    if(isClick === true) {
+      buttonsElementArray.forEach(button => {
+        console.log(button)
+        if(EndCorrectAnswer === button.name){
+        button.style.color = "yellow";
+        button.style.pointerEvents = "none";
+        button.style.display = "block";
+        }else {
+          button.style.pointerEvents = "none";
+          button.style.display = "none";
+        }
+      })
+    }else {
+      buttonsElementArray.forEach(button => {
+        button.style.color = "black";
+        button.style.display = "block";
+      })
+    }
+   
+ 
+  }
 
     return (
       <>   
@@ -215,7 +199,6 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "height": height,
           "top": top,
           "left": left,
-          "display": isClick ? "block": "none",
         }}>{name}</button>
 
 
@@ -225,7 +208,6 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "height": height1,
           "top": top1,
           "left": left1,
-          "display": isClick ? "block": "none",
         }}>{name1}</button>
 
         <button ref = {buttonQuiz} name = {name2}  className="quiz_button" onClick = {onPress}
@@ -234,7 +216,6 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "height": height2,
           "top": top2,
           "left": left2,
-          "display": isClick ? "block": "none",
         }}>{name2}</button>
 
         <button ref = {buttonQuiz} name = {name3}  className="quiz_button" onClick = {onPress}
@@ -243,7 +224,6 @@ export const QuizGetImage = ({onPress, isClick}) => {
           "height": height3,
           "top": top3,
           "left": left3,
-          "display": isClick ? "block": "none",
         }}>{name3}</button>
   
 
