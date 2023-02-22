@@ -173,7 +173,7 @@ export const QuizGetImage = ({onPress, isClick}) => {
 
     if(isClick === true) {
       buttonsElementArray.forEach(button => {
-
+ 
         if(EndCorrectAnswer === button.name){
         button.style.color = "yellow";
 
