@@ -165,25 +165,40 @@ export const QuizGetImage = ({onPress, isClick}) => {
       buttonsElement = document.querySelectorAll('.quiz_button');
       const buttonsElementArray = Array.from(buttonsElement)
       setIsClick(!isClick);
+    
+
+      if(score === 9) {
+        navigate('/result');
+      }
+
     if(isClick === true) {
       buttonsElementArray.forEach(button => {
-        console.log(button)
+
         if(EndCorrectAnswer === button.name){
         button.style.color = "yellow";
+
+
         button.style.pointerEvents = "none";
         button.style.display = "block";
+
         }else {
+
           button.style.pointerEvents = "none";
           button.style.display = "none";
+
         }
       })
     }else {
+
       buttonsElementArray.forEach(button => {
         button.style.color = "black";
         button.style.display = "block";
+        button.style.pointerEvents = "auto";
+        setScore(score + 1);
       })
+
     }
-   
+
  
   }
 

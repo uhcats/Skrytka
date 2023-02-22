@@ -292,11 +292,17 @@
   font-size: 20px;
   font-weight: bolder;
   color: black; 
+
   z-index: 900;
    &:hover {
     cursor: pointer;
    }
+
 }
+
+
+
+
 
 
 @media (max-width: 600px) {
