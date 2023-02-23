@@ -20,7 +20,6 @@ const NavigationQuiz = ({score}) => {
     <i className="fa-regular fa-hourglass"></i>
     <AppProvider>
     <Timer/>
-  
     </AppProvider>
    
     </div>

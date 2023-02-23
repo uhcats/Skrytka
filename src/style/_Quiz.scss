@@ -71,11 +71,14 @@
   position: fixed;
   top: 10%;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
   .questionText1 {
     color: white;
     font-size: 25px;
-    padding: 1em;
+   
   }
 }
 
@@ -146,10 +149,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100vw;
 }
 
 .NextQuestionButton {
-  margin-top: .4em;
   font-size: 30px;
   padding: .5em;
   border: none;
@@ -189,6 +192,30 @@
   }
 
 }
+@media (max-width: 500px) {
+  .score {
+    font-size: 20px;
+  }
+  .fa-regular {
+    font-size: 34px;
+
+  }
+ 
+    .NextQuestionButton {
+      font-size: 24px;
+      width: 245px;
+
+    }
+    .imgArrow {
+      width: 45px;
+      height: 45px;
+     
+    }
+    .timerTime {
+      font-size: 25px;
+    }
+
+}
 
 .patronImg {
   width: $width-footer-icon / 3;
@@ -215,29 +242,7 @@
     font-size: 20px;
   }
 
-  @media (max-width: 500px) {
-    .score {
-      font-size: 20px;
-    }
-    .fa-regular {
-      font-size: 34px;
-
-    }
-
-      .questionText1 {
-        font-size: 15px;
-        height: 100px;
-      }
-      .imgArrow {
-        width: 45px;
-        height: 45px;
-       
-      }
-      .timerTime {
-        font-size: 25px;
-      }
-  
-  }
+ 
 
 
 @media (max-width: 650px) {
@@ -246,8 +251,13 @@
     height: 500px;
     padding: 3em;
   }
+
   .a-write-to-us-1 {
     font-size: 16px;
+  }
+  .questionText1 {
+    font-size: 20px;
+    
   }
  
 }

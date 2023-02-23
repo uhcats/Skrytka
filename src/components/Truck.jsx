@@ -33,6 +33,7 @@ const Truck = () => {
     const imgWithoutExtends = e.target.id.split(/\.(?=[^\.]+$)/);
     const TrackName = imgWithoutExtends[0].slice(18);
     setTrackName(TrackName);
+    console.log(TrackName);
     textChooseTrack.current.style.color= 'black';
   
   }  
