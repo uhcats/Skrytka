@@ -16,6 +16,7 @@
     "react-use-window-size": "^1.0.1",
     "sass": "^1.57.1",
     "start": "^5.1.0",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -24,12 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+
   "browserslist": {
     "production": [
       ">0.2%",

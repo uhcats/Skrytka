@@ -5,6 +5,8 @@ import { SecondMinutes } from './Timer';
 
 import { useNavigate } from 'react-router-dom';
 import Conffetti from './Conffetti';
+import Player from './Sound';
+import url from '../style/congratulation.mp3'
 const Result = () => {
 
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ const Result = () => {
   return (
     <>
     <div className="container">
-
+     
       <h2 className='congratulationh2'>BRAWO !!!</h2>
       <img className='trophy' src="\img\trophy.webp" alt="" />
       <h2 className='endScoreh2'>Twój wynik to: {endScore} / 10</h2>
@@ -20,10 +22,7 @@ const Result = () => {
       <button className='NextQuestionButton' onClick = {() => navigate(-1)}>Zagraj jeszcze raz</button>
       <button className='NextQuestionButton'onClick={() => navigate('/')}>Wróć do strony głównej</button>
       <Conffetti/>
-      <div className="confetti-container">
-      
-    </div>
-  
+      <Player url = {url}/>
     </div>
 
 
