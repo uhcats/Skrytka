@@ -265,6 +265,23 @@
 .boxElement {
  @include display-flex;
 }
+@media (max-width: 1478px) {
+  .boxElement:nth-child(1) {
+    margin-top: 20%;
+  }
+}
+@media (min-width: 1478px) {
+  .boxElement:nth-child(1),
+  .boxElement:nth-child(2) {
+    margin-top: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .boxElement:nth-child(1) {
+    margin-top: 10%;
+  }
+}
+
 .boxOfImage {
   display: flex;
   flex-direction: row;
@@ -279,7 +296,7 @@
 
 	width: 90%;
   max-width: 750px;
-  margin-top: 30%;
+  margin-top: 10%;
 
 }
 
@@ -324,9 +341,7 @@
       font-size: 12px;
       font-weight: bold;
     }
-    .quiz_container:nth-child(1) {
-      margin-top: 50%;
-    }
+
     .quiz_container {
       margin-top: 20%;
     }
