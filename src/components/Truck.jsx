@@ -4,36 +4,39 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
+
+export let InformationTrackFromDB = [
+  {
+    img: '../img/fire-truck/track1.jpg',
+    name: "Wóz 1",
+    progress: 70,
+  },
+  
+  {
+    img: '../img/fire-truck/track2.jpg',
+    name: "Wóz 2",
+    progress: 20,
+  },
+  {
+    img: '../img/fire-truck/track3.jpg',
+    name: "Wóz 3",
+    progress: 0,
+  }
+];
+
 const Truck = () => {
 
   const {id} = useParams();
   const [trackName, setTrackName] = useState('');
   const textChooseTrack = useRef(true);
-  const InformationTrackFromDB = [
-    {
-      img: '../img/fire-truck/track1.jpg',
-      name: "Wóz 1",
-      progress: 70,
-    },
-    
-    {
-      img: '../img/fire-truck/track2.jpg',
-      name: "Wóz 2",
-      progress: 20,
-    },
-    {
-      img: '../img/fire-truck/track3.jpg',
-      name: "Wóz 3",
-      progress: 0,
-    }
-  ];
+  
 
   const handleImageClick = (e) => {
 
     const imgWithoutExtends = e.target.id.split(/\.(?=[^\.]+$)/);
     const TrackName = imgWithoutExtends[0].slice(18);
     setTrackName(TrackName);
-    console.log(TrackName);
+
     textChooseTrack.current.style.color= 'black';
   
   }  
@@ -73,6 +76,7 @@ const Truck = () => {
             </div>
             
           </div>
+          
           </div>
           
         </>

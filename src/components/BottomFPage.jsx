@@ -17,7 +17,7 @@ const BottomFPage = () => {
   
 
   const buttonShow = unitOsp ? <div className='imgArrow'>
-  <Link to = {`/truck/${unitOsp}`}>
+  <Link to = {`/${unitOsp}`}>
  <i id ='fa-solid' className="fa-solid fa-arrow-right"></i>
  </Link>
  </div> 

@@ -5,14 +5,15 @@ import AppProvider from './AppContext';
 import { EndCorrectAnswer } from './GetImageAndQuestion';
 import Timer from './Timer';
 import FooterQuiz from './FooterQuiz';
-
+export let link = "";
+console.log(link)
 
 export let endScore = 1;
 
-
 const NavigationQuiz = ({score}) => {
+  link = /[^/]*$/.exec(`${window.location.href}`)[0];
   const navigate = useNavigate();
-
+  
   return (
     <div id = 'navigationQuiz' className='navigation'>
     <img onClick = {() => navigate(-1)} id = 'imgArrow' className='imgArrow' src="/img/arrow-turn.png" alt="arrow" />

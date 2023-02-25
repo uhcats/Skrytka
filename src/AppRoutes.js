@@ -14,9 +14,9 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<App />} />
-      <Route path='/truck/:id' element={<Truck />} />
+      <Route path='/:id' element={<Truck />} />
       <Route path='*' element={<NotFound />} />
-      <Route path='/truck/:id/:id' element={<Quiz />} />
+      <Route path='/:id/:id' element={<Quiz />} />
       <Route path="/result" element={<AppProvider><Result />
       </AppProvider>} />
     </Routes>
